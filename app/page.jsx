@@ -242,7 +242,7 @@ export default function Home() {
                     height={760}
                     priority
                     sizes="(min-width: 1024px) 520px, 100vw"
-                    className="h-[420px] w-full object-cover object-top sm:h-[520px]"
+                    className="h-[320px] w-full object-cover object-top sm:h-[420px]"
                   />
                 </div>
                 <div className="card absolute -bottom-8 left-6 max-w-xs">
