@@ -1069,6 +1069,12 @@ export default function Home() {
               <p className="mt-2">
                 محتوای این صفحه بر اساس ویکی‌پدیا تنظیم شده و صرفاً جهت دمو استفاده می‌شود.
               </p>
+              <p className="mt-2 text-xs text-slate">
+                طراحی و توسعه توسط{" "}
+                <a className="font-semibold text-accent" href="https://crm.vahidmohtasham.com">
+                  محتشم تک
+                </a>
+              </p>
             </div>
             <div className="flex flex-wrap gap-4">
               <a className="transition hover:text-ink" href="#home">
