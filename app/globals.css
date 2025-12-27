@@ -1,14 +1,21 @@
 @import "tailwindcss";
+@source "./**/*.{js,jsx,ts,tsx,mdx}";
+@source "../components/**/*.{js,jsx,ts,tsx,mdx}";
 
-:root {
-  --color-ink: 11 28 36;
-  --color-slate: 43 63 77;
-  --color-fog: 245 247 246;
-  --color-mist: 230 239 242;
-  --color-accent: 13 138 166;
-  --color-accent-2: 199 154 59;
-  --color-highlight: 249 240 215;
-  --color-line: 211 224 229;
+@theme {
+  --color-ink: #0b1c24;
+  --color-slate: #2b3f4d;
+  --color-fog: #f5f7f6;
+  --color-mist: #e6eff2;
+  --color-accent: #0d8aa6;
+  --color-accent-2: #c79a3b;
+  --color-highlight: #f9f0d7;
+  --color-line: #d3e0e5;
+  --shadow-soft: 0 18px 40px rgba(10, 30, 46, 0.12);
+  --shadow-glow: 0 24px 60px rgba(13, 138, 166, 0.25);
+  --animate-fade-up: fadeUp 0.9s ease forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3.4s ease-in-out infinite;
 }
 
 * {
@@ -20,7 +27,7 @@ html {
 }
 
 body {
-  color: rgb(var(--color-ink));
+  color: var(--color-ink);
   background:
     radial-gradient(circle at 15% 10%, rgba(13, 138, 166, 0.16), transparent 45%),
     radial-gradient(circle at 85% 20%, rgba(199, 154, 59, 0.18), transparent 50%),
@@ -36,6 +43,36 @@ img {
 
 section {
   scroll-margin-top: 120px;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 @layer base {
