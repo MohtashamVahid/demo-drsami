@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: 11 28 36;
+  --color-slate: 43 63 77;
+  --color-fog: 245 247 246;
+  --color-mist: 230 239 242;
+  --color-accent: 13 138 166;
+  --color-accent-2: 199 154 59;
+  --color-highlight: 249 240 215;
+  --color-line: 211 224 229;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--color-ink));
+  background:
+    radial-gradient(circle at 15% 10%, rgba(13, 138, 166, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(199, 154, 59, 0.18), transparent 50%),
+    linear-gradient(180deg, #f8f6f2 0%, #f5f7f6 40%, #eef3f4 100%);
+  min-height: 100%;
+  font-family: var(--font-sans);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  .display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .page-shell {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .page-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.8), transparent 40%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .container-site {
+    @apply mx-auto max-w-6xl px-6;
+  }
+
+  .section-space {
+    @apply py-16 md:py-24;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/80 px-4 py-1 text-xs font-medium text-slate shadow-soft;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-glow;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-accent/40 bg-white/70 px-6 py-3 text-sm font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent;
+  }
+
+  .card {
+    @apply rounded-3xl border border-line bg-white/80 p-6 shadow-soft backdrop-blur;
+  }
+
+  .card-dark {
+    @apply rounded-3xl border border-white/20 bg-ink/90 p-6 text-white shadow-soft;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-line bg-white/80 px-4 py-3 text-sm text-ink placeholder:text-slate/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold text-ink md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-3 text-base text-slate;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
